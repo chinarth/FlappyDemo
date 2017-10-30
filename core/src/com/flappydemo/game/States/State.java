@@ -20,7 +20,7 @@ public abstract class State {
         mouse = new Vector3();
 
     }
-    protected abstract void handleInput{};
+    protected abstract void handleInput();
     public abstract void update(float dt);          //dt is delta time
     public abstract void render(SpriteBatch sb);
 

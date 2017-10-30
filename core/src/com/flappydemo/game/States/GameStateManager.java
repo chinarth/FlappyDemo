@@ -12,8 +12,8 @@ public class GameStateManager {
 
     private Stack<State> states;
 
-    public GameStateManager(){      //constructor
-        states = new Stack<states>;
+    public GameStateManager(){              //constructor
+        states = new Stack<State>();
     }
 
     public void push(State state){
