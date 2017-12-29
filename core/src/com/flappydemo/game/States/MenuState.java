@@ -11,7 +11,7 @@ import com.flappydemo.game.FlappyDemo;
  * Created by Arthur on 2017-10-29.
  */
 
-public class MenuState extends state {
+public class MenuState extends State {
 
     private Texture background;
     private Texture playbutton;

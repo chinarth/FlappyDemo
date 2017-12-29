@@ -10,21 +10,21 @@ import java.util.Stack;
 
 public class GameStateManager {
 
-    private Stack<state> states;
+    private Stack<State> states;
 
     public GameStateManager(){              //constructor
-        states = new Stack<state>();
+        states = new Stack<State>();
     }
 
-    public void push(state state){
+    public void push(State state){
         states.push(state);
     }
 
-    public void pop(state state){
+    public void pop(State state){
         states.pop();
     }
 
-    public void set(state state){
+    public void set(State state){
         states.pop();
         states.push(state);
     }
