@@ -1,6 +1,10 @@
 package com.flappydemo.game.States;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.flappydemo.game.FlappyDemo;
+//import com.sun.prism.Texture;
+import java.awt.TextArea;
 
 /**
  * Created by Arthur on 2017-10-29.
@@ -8,9 +12,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MenuState extends State{
 
+    private Texture background;
+    private Texture playbutton;
 
     public MenuState(GameStateManager gsm) {
         super(gsm);
+        background = new Texture("sprites/background-day.png");
+        playbutton = new Texture("sprites/play.png");
+
     }
 
     @Override
@@ -25,6 +34,9 @@ public class MenuState extends State{
 
     @Override
     public void render(SpriteBatch sb) {
-
+        sb.begin();
+        sb.draw(background, 0, 0, FlappyDemo.WIDTH, FlappyDemo.HEIGHT );
+        sb.draw(playbutton, (FlappyDemo.WIDTH / 2)- (playbutton.getWidth() / 2), (FlappyDemo.HEIGHT / 2) - (playbutton.getHeight() / 2));
+        sb.end();
     }
 }
