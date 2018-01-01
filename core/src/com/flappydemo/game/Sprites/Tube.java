@@ -14,8 +14,8 @@ import java.util.Random;
 
 public class Tube {
     private static final int FLUCTUATION = 150; //adjust for tube position variance
-    private static final int TUBE_GAP = 100;    //distance between top and bottom tube
-    private static final int LOWEST_OPENING = 80;   //lowest the tube can go
+    private static final int TUBE_GAP = 120;    //distance between top and bottom tube
+    private static final int LOWEST_OPENING = 100;   //lowest the tube can go
     public static final int TUBE_WIDTH = 52;    //the tubes are 52 pixels wide
 
     private Texture topTube, bottomTube;
