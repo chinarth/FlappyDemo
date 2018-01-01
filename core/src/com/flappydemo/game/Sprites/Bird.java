@@ -48,10 +48,13 @@ public class Bird {
     }
 
     public void jump(){
-        velocity.y = 300;
+        velocity.y = 250;
     }
 
     public Rectangle getBounds(){
         return bounds;
+    }
+    public void dispose(){
+        bird.dispose();
     }
 }
