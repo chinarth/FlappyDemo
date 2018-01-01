@@ -25,8 +25,8 @@ public class PlayState extends State {
 
     private Array<Tube> tubes;
 
-    public PlayState(GameStateManager gam) {
-        super(gam);
+    public PlayState(GameStateManager gsm) {
+        super(gsm);
         bird = new Bird(50, 300);
         cam.setToOrtho(false, FlappyDemo.WIDTH / 2, FlappyDemo.HEIGHT / 2);
         bg = new Texture("sprites/background-day.png");
@@ -62,12 +62,13 @@ public class PlayState extends State {
                 tube.reposition(tube.getPosTopTube().x + ((Tube.TUBE_WIDTH + TUBE_SPACING) * TUBE_COUNT));
             }
             if (tube.collides(bird.getBounds())){   //if current tube hits the bird
-                gsm.set(new PlayState(gsm));
-                break;
+                gsm.set(new MenuState(gsm));
+                return;
             }
         }
         if (bird.getPosition().y <= ground.getHeight() + GROUND_Y_OFFSET) {
-            gsm.set(new PlayState(gsm));
+            gsm.set(new MenuState(gsm));
+            return;
         }
         cam.update();
     }
