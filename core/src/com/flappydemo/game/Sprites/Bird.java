@@ -1,6 +1,7 @@
 package com.flappydemo.game.Sprites;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 
@@ -17,16 +18,20 @@ public class Bird {
 
     private Texture bird;
     private Rectangle bounds;
+    private Animation birdAnimation;
 
     public Bird(int x, int y){
         position = new Vector3(x, y, 0);
         velocity = new Vector3(0, 0, 0);
-        bird = new Texture("sprites/yellowbird-midflap.png");
-        bounds = new Rectangle(x, y, bird.getWidth(), bird.getHeight());
+        //bird = new Texture("sprites/yellowbird-midflap.png");
+        bird = new Texture("sprites/yellowbird-animation.png");
+        birdAnimation = new Animation(new TextureRegion(bird), 3, 0.5f);
+        bounds = new Rectangle(x, y, bird.getWidth() / 3, bird.getHeight());
     }
 
     public void update(float dt){
         //check if the bird hit the bottom, only add gravity if not at bottom
+        birdAnimation.update(dt);
         if (position.y > 0) {
             velocity.add(0, GRAVITY, 0);
         }
@@ -43,8 +48,8 @@ public class Bird {
         return position;
     }
 
-    public Texture getTexture() {
-        return bird;
+    public TextureRegion getTexture() {
+        return birdAnimation.getFrame();
     }
 
     public void jump(){
